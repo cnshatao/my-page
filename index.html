@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>title</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		
+		<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="node_modules/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
+		<script type="text/javascript" src="node_modules/dot/doT.min.js"></script>
+		<script type="text/javascript" src="node_modules/moment/min/moment.min.js"></script>
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="node_modules/bootstrap-treeview/dist/bootstrap-treeview.min.css">
+		<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+
+		<script type="text/javascript" src="src/main.js"></script>
+		<link rel="stylesheet" type="text/css" href="src/style.css">
+	</head>
+	<body>
+	 	<div class="header">
+	 		<span class="header-title">Air Condition Monitor System</span>
+	 		<div class="admin-panel">
+	 			<div class="help-container">
+	 				<span class="help-btn">Help</span>
+	 				<span class="help-btn-tooltips">aaaaaaaaaaaa</span>
+	 			</div>	
+	 			
+	 			<div class="language-container">
+	 				<span class="language-btn">Language</span>
+	 				<div class="language-list-container">
+	 					<div class="arrow-up"></div>
+	 					<ul>
+	 						<li class="language-list-item">Chinese</li>
+	 						<li class="language-list-item">English</li>
+	 						<li class="language-list-item">Japanese</li>
+	 						<li class="language-list-item">Korea</li>
+	 					</ul>
+	 				</div>
+	 			</div>
+	 			<div class="admin-tools-container">
+	 				<span class="admin-tools-btn">Admin Tools</span>
+	 				<div class="admin-tools-list-container">
+	 					<div class="arrow-up"></div>
+	 					<ul>
+	 						<li class="admin-tools-list-container-item">aaaaaaaaaaaaaaa</li>
+	 						<li class="admin-tools-list-container-item">bbbbbbbbbbbbbbb</li>
+	 						<li class="admin-tools-list-container-item">ccccccccccccccc</li>
+	 					</ul>
+	 				</div>
+	 			</div>
+	 				
+	 			
+	 			<button class="btn btn-danger">Log Off</button>
+	 		</div>
+	 		
+	 		</div>
+	 	
+		<div class="content">
+			<div class="col-xs-4 col-sm-4 col-md-2">
+				<div class="country-list-tree"></div>
+			</div>
+			<div id="container" class="col-xs-8 col-sm-8 col-md-10 content-page">
+				
+
+			</div>
+		</div> 
+		
+
+
+	<div class="footer">
+		<div class="footer-link">
+			<a>Terms of Use</a>
+			<a>About our Site</a>
+			<a>Privacy Policy</a>
+			<a>Cookies</a>
+			<a>Accessibility Help</a>
+			<a>Ad choices</a>
+		</div>
+		<div class="footer-copyright">
+			Copyright @2017 my site. The author is not responsible for the content of external site.
+		</div>
+		
+	</div>
+
+	<script id="cityItem" type="text/x-dot-template">
+		{{~it :value:index}}
+				<div class="city-item">
+					<div class="city-name">{{=value.citynm}}</div>
+					<span class="city-weather">{{=value.aqi}}</span>
+					<span class="city-temperature">{{=value.aqi_levnm}}</span>
+					<span class="city-position">{{=value.aqi_remark}}</span>
+				</div>
+		{{~}}
+	 </script>
+	</body>
+</html>

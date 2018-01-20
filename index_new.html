@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test demo</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script type="text/javascript" src="src/doT.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="src/moment.min.js"></script>
+	<style type="text/css">
+		
+		body{
+			margin:0;
+		}
+
+		.header{
+			height: 100px;
+			width: 100%;
+			display:flex;
+			align-items: center;
+			position: fixed;
+			top: 0;
+			background-color: white;
+		}
+
+		.header-title{
+			flex:1;
+			font-size: 30px;
+			margin-left: 30px;
+		}
+
+		.header-item{
+			font-size: 20px;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+
+		.header-item:hover{
+			cursor: pointer;
+			outline:2px solid black;
+		}
+
+		.help-button{
+			color: red;
+			position: relative;
+		}
+
+		.help-button-container{
+			background-color: yellow;
+			display: none;
+			position: absolute;
+			top:30px;
+
+		}
+
+		.main-area{
+			padding-top: 100px;
+		}
+
+		.main-area:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+
+		.nav{
+			height: 1000px;
+			background-color: white;
+			float: left;
+			width: 20%;
+		}
+
+		.content{
+			height: 1000px;
+			background-color: green;
+			float: left;
+			width: 80%;
+		}
+
+		.footer{
+			height: 100px;
+			background-color: gray;
+		}
+
+		.tree-first-level-label{
+			font-size: 28px;
+		}
+
+		.tree-first-level-label:hover{
+			cursor: pointer;
+			background-color: #c0c0c0;
+		}
+
+		.tree-second-level-list li:hover{
+			cursor: pointer;
+			background-color: #c0c0c0;
+		}
+
+		.tree-second-level-list{
+			display: none;
+			list-style-type: none;
+			padding: 0;			font-size: 20px;
+			margin-bottom: 0;
+		}
+
+		.my-tree-container{
+			padding-left: 30px;
+		}
+
+		.label-indicator{
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="header-title">Air Condition Monitor System</div>
+		
+		<div class="header-item help-button">help
+
+		<div class="help-button-container">aaaaa </div>
+		</div>
+		
+		<div class="header-item">languages</div>
+		<button class="header-item">log off</button>
+	</div>
+	<div class="main-area">
+		<div class="nav">
+			<div class="my-tree-container">
+				
+				
+			</div>
+		</div>
+		<div class="content"></div>
+	</div>
+	<div class="footer"></div>
+
+	<script id="treeTemplate" type="text/x-dot-template">
+		{{~it :value}}
+				<div class="tree-first-level-node">
+					<div class="tree-first-level-label">
+						<span class="label-indicator glyphicon glyphicon-plus"></span>
+						<span class="label-content">{{=value.pname}}</span>
+					</div>
+					<ul class="tree-second-level-list">
+						{{~value.cityList :v}}
+							<li data-cid={{=v.cid}}>{{=v.cname}}</li>
+						{{~}}
+					</ul>
+				</div>
+		{{~}}
+	 </script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".help-button").on("click",function(){
+				$(".help-button-container").toggle();
+			});
+
+			
+
+
+			var MyTree = function(treeData, $treeContainer, callback){
+				// step1, construct the tree DOM section
+				var pagefn = doT.template(document.getElementById('treeTemplate').text);
+				$treeContainer.html(pagefn(treeData));
+
+				// step2, bind the open/close action to the tree level1 node
+				$treeContainer.find(".tree-first-level-label").on("click", function(){
+					var $ind = $(this).find(".label-indicator");
+					var isPlus = $ind.hasClass("glyphicon-plus");
+					if(isPlus){
+						$ind.removeClass("glyphicon-plus").addClass("glyphicon-minus");
+					}else{
+						$ind.removeClass("glyphicon-minus").addClass("glyphicon-plus");
+					}
+					$(this).parent().find(".tree-second-level-list").toggle();
+
+				});
+
+				// step3, bind the callback handler to the tree level2 node
+				$treeContainer.find(".tree-second-level-list li").on("click", callback);
+
+			};
+
+			var trees = [
+				{
+					pname: "陕西",
+					cityList: [
+						{
+							cname: '西安',
+							cid: 316
+						},
+						{
+							cname: '延安',
+							cid: 317
+						},
+						{
+							cname: '榆林',
+							cid: 318
+						},
+						{
+							cname: '铜川',
+							cid: 319
+						},
+						{
+							cname: '商洛',
+							cid: 320
+						}
+					]
+				},
+				{
+					pname: "新疆",
+					cityList: [
+						{
+							cname: '乌鲁木齐',
+							cid: 337
+						},
+						{
+							cname: '石河子',
+							cid: 338
+						},
+						{
+							cname: '吐鲁番',
+							cid: 340
+						},
+						{
+							cname: '阿克苏',
+							cid: 343
+						}
+					]
+				},
+				{
+					pname: "江苏",
+					cityList: [
+						{
+							cname: '南京',
+							cid: 399
+						},
+						{
+							cname: '镇江',
+							cid: 400
+						},
+						{
+							cname: '扬州',
+							cid: 403
+						},
+						{
+							cname: '连云港',
+							cid: 407
+						}
+					]
+				}
+			];
+
+
+			// 1. get the city id
+			// 2. get current date, calculate to get the last 7 days ['20171222', ...]
+			// 3. call the api 7 times
+			// 4. parse the 7 responses, map to a new data [11, 22, 33, ...]
+			// 5. call the highcharts api to generate chart
+			
+
+
+			var ff = function(){
+				var x = $(this).attr("data-cid");
+			};
+			
+			var mytree = new MyTree(trees, $(".my-tree-container"), ff);
+		});
+	</script>
+</body>
+</html>

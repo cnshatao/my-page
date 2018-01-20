@@ -1,0 +1,184 @@
+body {
+	font-family: 'Lato', serif;
+	font-size: 16px;
+}
+.header{
+	position: fixed;
+	top: 0;
+	left:0;
+	width: 100%; 
+	border-bottom: 2px solid gray;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	background: white;
+	z-index: 1;
+}
+
+.content{
+	min-height: calc(100vh - 80px - 69px);
+	display: flex;
+	margin-top: 80px;
+}
+
+.footer{
+	border-top: 1px solid gray;
+}
+
+.header-title{
+	margin-left: 50px;
+	font-size: 30px;
+	flex: 1;
+	
+
+}
+
+.admin-panel{
+	font-size: 20px;
+
+}
+
+.admin-panel .help-btn:hover{
+	outline: 1px dotted yellowgreen;
+}
+
+.admin-panel span,
+.admin-panel button{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.admin-panel span{
+	cursor: pointer;
+}
+
+.footer{
+	position: relative;
+}
+.footer-link a{
+	font-size: 20px;
+	display: inline-block;
+	padding: 20px;
+
+
+}
+.footer-link a:hover{
+	cursor: pointer;
+	text-decoration: none;
+	text-shadow: 10px 5px 5px black;
+}
+
+.footer-link{
+	margin: 0 auto;
+	width: 1000px;
+}
+
+.footer-copyright{
+	position: absolute;
+	right: 130px;
+	font-size: 14px;
+	font-weight: bold;
+	top: 45px;
+}
+
+.city-item{
+	border: 2px solid gray;
+	margin: 10px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 5px #c0c0c0;
+}
+
+.city-name{
+	font-size: 30px;
+	font-weight: bold;
+	margin-left: 20px;
+}
+
+.city-weather,
+.city-temperature,
+.city-position
+{
+	font-size: 20px;
+	font-style: italic;
+	margin-left: 50px;
+
+}
+
+.help-container,
+.language-container,
+.admin-tools-container{
+	position:relative;
+	display: inline-block;
+}
+
+.help-btn-tooltips{
+	position: absolute;
+	background: yellow;
+	top: 30px;
+	display: none;
+	width:200px;
+	border-radius: 10px;
+}
+
+.admin-tools-list-container{
+	position: absolute;
+	background: yellowgreen;
+	display: none;
+	border-radius: 10px;
+	top:34px;
+	left: 20px;
+	
+}
+
+.admin-tools-list-container ul{
+	list-style-type:none;
+	cursor: pointer;
+	padding-left: 0px;
+}
+
+
+.admin-tools-list-container-item{
+	color: white;
+	padding: 5px 20px;
+
+}
+
+.admin-tools-list-container ul li:not(:last-child){
+	border-bottom: 1px solid white;
+}
+
+.language-list-container{
+	display: none;
+	position: absolute;
+	top: 35px;
+	left: 20px;
+	background-color: yellowgreen;
+	color: white;
+}
+
+.arrow-up {
+	position: absolute;
+	top: -10px;
+	left: 5px;
+	width: 0; 
+	height: 0; 
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom: 15px solid yellowgreen;
+}
+
+.language-list-container ul{
+	list-style-type: none;
+	padding-left: 0;
+	margin-bottom: 0;
+}
+
+.language-list-container ul li{
+	padding: 5px 20px;
+	cursor: pointer;
+}
+
+.language-list-container ul li:not(:last-child){
+	border-bottom: 1px solid white;
+}
+

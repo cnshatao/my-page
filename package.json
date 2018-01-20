@@ -1,0 +1,31 @@
+{
+  "name": "aqi-monitor",
+  "version": "1.0.0",
+  "description": "an api monitor application to display the aqi value of the previous 7 days",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "npm install",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xjtustt/aqi-monitor-app.git"
+  },
+  "keywords": [
+    "aqi"
+  ],
+  "author": "Tao Sha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xjtustt/aqi-monitor-app/issues"
+  },
+  "homepage": "https://github.com/xjtustt/aqi-monitor-app#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "bootstrap-treeview": "^1.2.0",
+    "dot": "^1.1.2",
+    "jquery": "^3.2.1",
+    "moment": "^2.20.1"
+  }
+}
